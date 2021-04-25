@@ -25,7 +25,7 @@
       </div>
       <img src="@/assets/nauseda.png" class="nauseda" />
     </div>
-    <audio src="@/assets/himnas.mp3" autoplay loop />
+    <audio src="@/assets/himnas.mp3" autoplay />
   </div>
 </template>
 
