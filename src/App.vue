@@ -25,7 +25,7 @@
       </div>
       <img src="@/assets/nauseda.png" class="nauseda" />
     </div>
-    <audio src="@/assets/himnas.mp3" autoplay />
+    <audio src="@/assets/himnas.mp3" autoplay loop />
   </div>
 </template>
 
@@ -41,6 +41,15 @@ import hair3 from "@/assets/hair-3.svg";
 const GLASSES = [akiniai1, akiniai2, akiniai3, akiniai4];
 const HAIR = [hair1, hair2, hair3];
 
+export const preloadImages = (images) =>
+  images.map((image) => {
+    const newImage = new Image();
+
+    newImage.src = image;
+
+    return newImage;
+  });
+
 export default {
   data() {
     return {
@@ -55,6 +64,9 @@ export default {
     currentHair() {
       return HAIR[this.currentHairIndex];
     },
+  },
+  mounted() {
+    preloadImages([...GLASSES, ...HAIR]);
   },
   methods: {
     nextGlasses() {
